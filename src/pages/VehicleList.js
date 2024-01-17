@@ -4,6 +4,7 @@ import styles from "../components/Vehicle.module.css";
 import Brandlist from "../components/Brandlist";
 import Loader from "../components/loader";
 import ShowVehicleDeals from "../components/ShowVehicleDeals";
+// import MinMax from "../components/MinMax";
 
 function Home() {
   const [vehicles, setVehicles] = useState([]);
@@ -40,11 +41,11 @@ function Home() {
           setTotalPages(totalPages);
 
           // Calculate maxPrice and minPrice here
-          const prices = dealerVehicles.map((vehicle) => vehicle.price);
-          const newMaxPrice = Math.max(...prices);
-          const newMinPrice = Math.min(...prices);
-          setMaxVehiclePrice(newMaxPrice);
-          setMinVehiclePrice(newMinPrice);
+          // const prices = dealerVehicles.map((vehicle) => vehicle.price);
+          // const newMaxPrice = Math.max(...prices);
+          // const newMinPrice = Math.min(...prices);
+          // setMaxVehiclePrice(newMaxPrice);
+          // setMinVehiclePrice(newMinPrice);
           setIsLoading(false);
         }
       } catch (error) {
@@ -78,6 +79,7 @@ function Home() {
         <div className={styles["home-page"]}>
           <h1 className={styles["page-title"]}>VEHICLE LIST</h1>
           <Brandlist />
+          {/* <MinMax /> */}
           <div className={styles["filter-container"]}>
             <select
               value={selectedStyle}
@@ -96,8 +98,8 @@ function Home() {
               <ShowVehicleDeals
                 key={vehicle._id}
                 vehicle={vehicle}
-                isMaxPrice={vehicle.price === maxVehiclePrice}
-                isMinPrice={vehicle.price === minVehiclePrice}
+                // isMaxPrice={vehicle.price === maxVehiclePrice}
+                // isMinPrice={vehicle.price === minVehiclePrice}
               />
             ))}
           </div>

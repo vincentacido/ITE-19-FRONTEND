@@ -11,6 +11,8 @@ import ShowDealerVehicle from "./components/ShowDealerVehicles";
 import Manufacturer from "./pages/Manufacturer";
 import Sales from "./pages/sales";
 import SearchResult from "./pages/searchResult";
+import SearchMinMax from "./pages/SearchMinMax"
+
 
 function Main({ handleLogout }) {
   return (
@@ -37,6 +39,7 @@ function Main({ handleLogout }) {
           <Route path="/manufacturer" component={Manufacturer} />
           <Route path="/sales" component={Sales} />
           <Route path="/search-result/:query" component={SearchResult} />
+          <Route path="/search-min-max" component={SearchMinMax} />
         </Switch>
       </Router>
     </>

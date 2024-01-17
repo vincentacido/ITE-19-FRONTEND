@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "../components/Vehicle.module.css";
 import Searchbar from "./searchbar";
 import Loader from "./loader";
+import MinMax from "./MinMax";
+
 function Brandlist() {
   const [brand, setBrand] = useState([]);
   const [activeBrand, setActiveBrand] = useState(null);
@@ -51,6 +53,7 @@ function Brandlist() {
       ) : (
         <div>
           <Searchbar />
+         
           <div className={styles["brand-list-container"]}>
             {brand.map((singleBrand) => (
               <Link
@@ -67,6 +70,7 @@ function Brandlist() {
               </Link>
             ))}
           </div>
+          <MinMax />
         </div>
       )}
     </>
