@@ -1,0 +1,478 @@
+/* Vehicle.module.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: serif, "Times New Roman", Times;
+}
+.home-page h1 {
+  text-align: center;
+  color: #222;
+  margin: 30px 0;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Default: 4 columns */
+  gap: 70px;
+  justify-content: center;
+  margin: 30px 40px;
+}
+
+.card-container {
+  --bg: #e8e8e8;
+  --contrast: #e2e0e0;
+  --grey: #93a1a1;
+  position: relative;
+  padding: 9px;
+  background-color: var(--bg);
+  border-radius: 35px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-conic-gradient(var(--bg) 0.0000001%, var(--grey) 0.000104%) 60% 60%/600% 600%;
+  filter: opacity(10%) contrast(105%);
+}
+
+.card-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 190px;
+  height: 254px;
+  background-color: var(--contrast);
+  border-radius: 30px;
+  /* Content style */
+  font-size: 30px;
+  font-weight: 900;
+  color: #c7c4c4;
+  text-align: center;
+  font-family: monospace;
+}
+
+/* Hover effect */
+.card-container:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+  filter: drop-shadow(0px 0px 10px rgb(161, 185, 186));
+}
+
+.card::after {
+  content: "scanning";
+  height: fit-content;
+  width: 100%;
+  color: rgb(128, 137, 143);
+  position: absolute;
+  z-index: 2;
+  bottom: 15%;
+  text-align: center;
+  animation: 2s dots  infinite;
+}
+
+.card::before {
+  content: "";
+  height: 0.1em;
+  width: 80%;
+  border-radius: 10px;
+  background-color: rgb(00, 200, 255);
+  position: absolute;
+  z-index: 2;
+  bottom: 10%;
+  animation: 4s grow  infinite;
+  align-self: flex-start;
+  margin-left: 10%;
+  filter: drop-shadow(0px 0px 10px #3fefef) drop-shadow(0px 0px 10px #3fefef);
+}
+
+.card-image {
+  width: 100%;
+  height: 400px; /* Adjusted height for better proportions */
+  border-radius: 15px 15px 0 0; /* Rounded corners only at the top */
+  object-fit: fill; /* Cover the entire container with the image */
+}
+
+.card-text-content {
+  padding: 15px;
+}
+
+.card-text-content a {
+  text-decoration: none;
+  color: #333; /* Updated text color */
+  cursor: pointer;
+}
+
+.card-text-content h2 {
+  text-align: center;
+  font-size: 24px; /* Adjusted font size */
+  margin: 10px 0; /* Center the text vertically */
+  color: #222; /* Updated text color */
+}
+
+.brand-name {
+  text-align: center;
+  color: #555; /* Updated text color */
+  font-weight: bold; /* Added font-weight for emphasis */
+}
+
+/* Added styles for the price and contact button */
+.price {
+  text-align: center;
+  font-size: 18px;
+  color: #008080; /* Teal color */
+}
+
+.contact-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #008080; /* Teal color */
+  color: #fff; /* White text color */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-button:hover {
+  background-color: #006666; /* Darker teal on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* pagination style */
+
+button {
+  position: relative;
+  padding: 5px 15px;
+  border-radius: 20%;
+  border: 2px solid rgb(209, 210, 215);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: #58dd9e;
+  color: #090909;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  display: block;
+  margin: auto; /* Center the button horizontally */
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+button:hover {
+  background: #007c0d;
+  box-shadow: 0 0 30px 5px 0px 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #080808;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adjust margin as needed */
+  border-radius: 50%; /* Make it a circle */
+  /* background-color: #f0f0f0; Add a background color for a circle effect */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.pagination-buttons {
+  display: flex;
+  border-radius: 20%;
+  gap: 10px; /* Adjust the spacing between buttons */
+}
+
+/* Vehicle.module.css */
+
+.brand-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.brand-link {
+  text-decoration: none;
+}
+
+.brand-list-text {
+  font-size: large;
+  margin-left: 40px;
+  color: rgb(102, 98, 98);
+}
+
+.brand-list-text:hover {
+  color: rgb(44, 37, 37);
+}
+
+.brand-link {
+  text-decoration: none;
+}
+
+.active-brand .brand-list-text {
+  /* Styles for the active link */
+  color: black; /* Change to the desired color for the active link text */
+  border-bottom-style: solid;
+  border-color: black;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 330px) {
+  .brand-list-container {
+    flex-direction: column;
+  }
+  .brand-list-text {
+    font-size: 12px;
+    margin-left: 0;
+  }
+}
+/* dealer profile styles */
+.dealer-profile-container {
+  height: 30vh;
+  width: 70vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  margin: 50px auto;
+}
+
+.left-side {
+  grid-row: span 2;
+  background-color: rgba(230, 228, 228, 0.7);
+}
+
+.left-side img {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: rgba(230, 228, 228, 0.7);
+}
+
+.right-side h2 {
+  font-size: large;
+  margin-left: 10px;
+}
+.right-side p {
+  color: rgb(121, 121, 121);
+  margin-left: 10px;
+}
+
+.View-deals {
+  text-decoration: none;
+  grid-column: span 3;
+  background-color: rgba(230, 228, 228, 0.7);
+}
+
+.View-deals h2 {
+  text-align: center;
+  color: rgb(44, 94, 137);
+}
+
+.dealers-vehicle-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.dealers-vehicle-profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dealer-deal {
+  text-decoration: none;
+}
+
+.dealer-deal span {
+  color: #222;
+  font-size: 30px;
+}
+
+.dealer-deal-arrow {
+  color: rgb(79, 108, 133);
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+
+/* loading styles */
+.loading-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust height as needed */
+  font-size: 24px;
+  color: #333;
+  /* Add more styling properties as desired */
+}
+/* change this tommorownpm s */
+@media screen and (max-width: 780px) {
+  .dealer-profile-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(6, 1fr); */
+    width: auto;
+    margin-bottom: 100px;
+  }
+  .left-side {
+    grid-row: span 2;
+  }
+  .View-deals {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .dealer-profile-container {
+    margin-bottom: 110px;
+    grid-template-columns: 1fr;
+  }
+  .right-side h2 {
+    font-size: 10px;
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 1058px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(250px, 1fr)
+    ); /* 2 columns on smaller screens */
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 658px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(
+      1,
+      minmax(250px, 1fr)
+    ); /* 2 columns on smaller screens */
+  }
+}
+
+.search-container {
+  padding: 2vh;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.input-container {
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 0 15px;
+  box-shadow: 0 0 8px #ddd;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font: 1.25rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.search-icon {
+  margin-right: 10px;
+  color: rgb(121, 133, 161);
+}
+
+
+.custom-select {
+  appearance: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin: 30px;
+}
+
+/* Hover effect */
+.custom-select:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
